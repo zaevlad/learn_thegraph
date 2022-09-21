@@ -1,7 +1,37 @@
 import React from 'react';
+
+/*
+Axios version of query
+(uncomment import for query use)
+
 import axios from 'axios';
+*/
+
+/*
+urql example
+(uncomment import for query use)
+
+import { createClient } from 'urql';
+*/
 
 function App() {
+    
+    /*urql code example of query 
+
+    const main =  async () => {
+        const APIURL ="https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2";
+        const tokensQuery = 'query{pairs(first: 10 where: {reserveUSD_gt: "1000000", volumeUSD_gt: "50000"} orderBy: reserveUSD orderDirection: desc) {id token0 {id symbol} token1 {id symbol} reserveUSD volumeUSD }}';
+        const client = createClient({url: APIURL});
+
+        const data = await client.query(tokensQuery, {id:'query'}).toPromise();
+        console.log(data.data.pairs);
+    }
+    main();
+    */
+
+    /*
+
+    Axios code example of query
 
     const main =  async () => {
         try {  
@@ -18,6 +48,7 @@ function App() {
         }
     }
     main();
+    */
     return (
         <h1>Hello world!</h1>
     );

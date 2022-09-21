@@ -44,6 +44,8 @@
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "axios": "^0.27.2",
     "dotenv": "^16.0.2",
-    "hardhat": "^2.11.2"
+    "graphql": "^16.6.0",
+    "hardhat": "^2.11.2",
+    "urql": "^3.0.3"
   }
 }
