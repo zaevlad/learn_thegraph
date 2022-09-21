@@ -14,7 +14,33 @@ urql example
 import { createClient } from 'urql';
 */
 
+/*
+apollo example
+(uncomment import for query use)*/
+
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+
+
 function App() {
+
+    /*apollo code example of query */
+
+    const main =  async () => {
+        const APIURL ="https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2";
+        const tokensQuery = 'query{pairs(first: 10 where: {reserveUSD_gt: "1000000", volumeUSD_gt: "50000"} orderBy: reserveUSD orderDirection: desc) {id token0 {id symbol} token1 {id symbol} reserveUSD volumeUSD }}';
+        const client = new ApolloClient({
+            uri: APIURL,
+            cache: new InMemoryCache(),
+        })
+        client.query({
+            query: gql(tokensQuery),
+        })
+        .then((data) => console.log('Subgraph data: ', data.data.pairs))
+        .catch((err) => {
+            console.log('Error fetching data: ', err)
+         })
+    }
+    main();
     
     /*urql code example of query 
 
@@ -49,6 +75,7 @@ function App() {
     }
     main();
     */
+
     return (
         <h1>Hello world!</h1>
     );
